@@ -1,8 +1,17 @@
 import React from 'react';
+import AcitityDetails from './ActivityDetails';
+import { Route, Link } from 'react-router-dom';
 
 const ActivitiesList = () => {
     return(
-        <p>This will be a list of activities</p>
+        <>
+            <Route>
+                <p>This will be a list of activities</p>
+            </Route>
+            <Route>
+                <AcitityDetails />
+            </Route>
+        </>
     )
 }
 

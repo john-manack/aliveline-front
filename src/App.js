@@ -7,6 +7,7 @@ function App() {
     <Router>
       <div >
         <h1>Aliveline</h1>
+        <h3>The accountant's tacklebox</h3>
         <nav>
           <Link to='/'>Home</Link>
           <Link to='/about'>About</Link>
