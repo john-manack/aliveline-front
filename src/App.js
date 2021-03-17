@@ -1,20 +1,27 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import Home from './components/Home'
 import ActivitiesList from './components/ActivitiesList';
+import ActivityDetails from './components/ActivityDetails';
+
 
 function App() {
+
   return (
     <Router>
-      <div >
-        <h1>Aliveline</h1>
-        <h3>The accountant's tacklebox</h3>
+      <div>
         <nav>
           <Link to='/'>Home</Link>
+          <Link to='/activities'>Activities</Link>
           <Link to='/about'>About</Link>
         </nav>
       </div>
       <Switch>
-        <ActivitiesList />
+        <Route exact path='/'>
+          <Home/>
+        </Route>
+        <Route path='/activities'>
+          <ActivitiesList />
+        </Route>
       </Switch>
     </Router>
   );
