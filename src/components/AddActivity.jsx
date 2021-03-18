@@ -19,7 +19,7 @@ const AddActivity = ({handleReload}) => {
 
     const _handleSubmit = async (e) => {
         e.preventDefault();
-        const submitResponse = await fetch('http://127.0.0.1:3030/activities/add', {
+        const submitResponse = await fetch('http://127.0.0.1:3030/activities/addActivity', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -41,7 +41,7 @@ const AddActivity = ({handleReload}) => {
         <form onSubmit={_handleSubmit}>
             <label>
                 <input 
-                    type="message" 
+                    type="text" 
                     name="title" 
                     value={title} 
                     onChange={_handleTitleChange} 

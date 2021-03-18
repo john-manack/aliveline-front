@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import ToggleComplete from './ToggleComplete';
 import ToggleBillable from './ToggleBillable';
+import AddNote from './AddNote';
 
 const ActivityDetails = ({reload, handleReload}) => {
     const { activity_id } = useParams({});
@@ -31,6 +32,7 @@ const ActivityDetails = ({reload, handleReload}) => {
                             </li>
                         ))}
                     </ul>
+                    <AddNote notesArray={activity.notes} handleReload={handleReload} reload={reload}/>
                     <p>Hours Log:</p>
                     <ul>
                         {activity.hours.map((hour, index) => (
