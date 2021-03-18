@@ -1,10 +1,11 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import ToggleComplete from './ToggleComplete';
+import ToggleBillable from './ToggleBillable';
 
-const ActivityDetails = () => {
+const ActivityDetails = ({reload, handleReload}) => {
     const { activity_id } = useParams({});
     const [activity, setActivity] = useState();
-    console.log('activity_id is ', activity_id)
 
     useEffect(() => {
         (async () => {
@@ -12,7 +13,7 @@ const ActivityDetails = () => {
             setActivity(activityData);
             console.log('activityData is ', activityData);
         })();
-    },[setActivity, activity_id]);
+    },[reload, activity_id]);
     
     return(
         <>
@@ -20,16 +21,8 @@ const ActivityDetails = () => {
                 <>
                     <h2>{activity.title}</h2>
                     <h3>{activity.details}</h3>
-                    {activity.is_complete ? (
-                        <p>Complete? - Yes</p>
-                    ) : (
-                        <p>Complete? - No</p>
-                    )}
-                    {activity.is_billable ? (
-                        <p>Billable? - Yes</p>
-                    ) : (
-                        <p>Billable? - No</p>
-                    )}
+                    <ToggleComplete is_complete={activity.is_complete} handleReload={handleReload} reload={reload}/>
+                    <ToggleBillable is_billable={activity.is_billable} handleReload={handleReload} reload={reload}/>
                     <p>Notes:</p>
                     <ul>
                         {activity.notes.map((note, index) => (

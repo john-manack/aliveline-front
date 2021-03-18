@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Route, Link, useRouteMatch } from 'react-router-dom';
 import ActivityDetails from './ActivityDetails';
 
-const ActivitiesList = ({reload}) => {
+const ActivitiesList = ({reload, handleReload }) => {
     const [activities, setActivities] = useState([]);
     const { url, path } = useRouteMatch();
     console.log('url is ', url)
@@ -23,6 +23,8 @@ const ActivitiesList = ({reload}) => {
                     <li key={index}>
                         <h3>{activity.title}</h3>
                         <p>{activity.details}</p>
+                        <p>Complete? {activity.is_complete ? 'Yes' : 'No'}</p>
+                        <p>Billable? {activity.is_billable ? 'Yes' : 'No'}</p>
                         <Link to={`${url}/${activity.id}`}>See Details</Link>
                     </li>
                 ))}
@@ -32,7 +34,7 @@ const ActivitiesList = ({reload}) => {
                 <p>Please select an activity for more details</p>
             </Route>
             <Route path={`/activities/:activity_id`}>
-                <ActivityDetails />
+                <ActivityDetails reload={reload} handleReload={handleReload}/>
             </Route>
         </>
     )
