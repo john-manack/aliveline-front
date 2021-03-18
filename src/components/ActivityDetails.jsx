@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import ToggleComplete from './ToggleComplete';
 import ToggleBillable from './ToggleBillable';
 import AddNote from './AddNote';
+import AddHours from './AddHours';
 
 const ActivityDetails = ({reload, handleReload}) => {
     const { activity_id } = useParams({});
@@ -25,22 +26,9 @@ const ActivityDetails = ({reload, handleReload}) => {
                     <ToggleComplete is_complete={activity.is_complete} handleReload={handleReload} reload={reload}/>
                     <ToggleBillable is_billable={activity.is_billable} handleReload={handleReload} reload={reload}/>
                     <p>Notes:</p>
-                    <ul>
-                        {activity.notes.map((note, index) => (
-                            <li key={index}>
-                                {note.note_entry}
-                            </li>
-                        ))}
-                    </ul>
                     <AddNote notesArray={activity.notes} handleReload={handleReload} reload={reload}/>
                     <p>Hours Log:</p>
-                    <ul>
-                        {activity.hours.map((hour, index) => (
-                            <li key={index}>
-                                {hour.hours_entry} hour(s) - {hour.hours_description}
-                            </li>
-                        ))}
-                    </ul>
+                    <AddHours hoursArray={activity.hours} handleReload={handleReload} reload={reload}/>
                 </>
             ) : (
                 <p>Getting Activity Info...</p>

@@ -28,6 +28,13 @@ const AddNote = ({handleReload, notesArray, reload}) => {
 
     return(
         <>
+            <ul>
+                {notesArray.map((note, index) => (
+                    <li key={index}>
+                        {note.note_entry}
+                    </li>
+                ))}
+            </ul>
             <form onSubmit={_handleSubmit}>
                 <input 
                     type="text" 
