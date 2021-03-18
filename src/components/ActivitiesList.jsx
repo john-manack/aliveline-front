@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { Route, Link, useRouteMatch } from 'react-router-dom';
 import ActivityDetails from './ActivityDetails';
+import AddActivity from './AddActivity';
 
 const ActivitiesList = ({reload, handleReload }) => {
     const [activities, setActivities] = useState([]);
@@ -18,6 +19,11 @@ const ActivitiesList = ({reload, handleReload }) => {
     return(
         <>
             <h1>User's Activities</h1>
+            <hr/>
+            <h2>Add new activity</h2>
+            <AddActivity handleReload={handleReload}/>
+            <hr/>
+            <h2>List of Current Activities</h2>
             <ul>
                 {activities.map((activity, index) => (
                     <li key={index}>
