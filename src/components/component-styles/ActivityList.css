@@ -1,0 +1,12 @@
+.activity {
+    margin: 0.5rem;
+}
+
+.activity p {
+    margin: 5px;
+}
+
+.activity a {
+    color: green;
+    text-decoration: none;
+}

@@ -1,0 +1,9 @@
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.App {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}

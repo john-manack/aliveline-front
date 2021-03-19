@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from '@material-ui/core';
 
 const AddActivity = ({handleReload}) => {
     const [title, setTitle] = useState('');
@@ -68,7 +69,7 @@ const AddActivity = ({handleReload}) => {
                 <option value={false}>Non-billable</option>
             </select>
             <br/>
-            <button type="submit" >Add Activity</button>
+            <Button  type="submit" >Add Activity</Button>
         </form>
     )
 }
