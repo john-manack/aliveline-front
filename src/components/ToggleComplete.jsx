@@ -1,4 +1,6 @@
 import { useParams } from 'react-router-dom';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import CheckIcon from '@material-ui/icons/Check';
 
 const ToggleComplete = ({is_complete, handleReload, reload}) => {
     const { activity_id } = useParams();
@@ -22,7 +24,7 @@ const ToggleComplete = ({is_complete, handleReload, reload}) => {
     return (
         <>
             <p>Complete? - {is_complete ? 'Yes' : 'No'}</p>
-            <button type="button" onClick={_handleClick}>Toggle Complete</button>
+            <ToggleButton value="check" type="button" selected={is_complete} onClick={_handleClick} color="blue"><CheckIcon/></ToggleButton>
         </>    
     )
 }

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@material-ui/core';
 
-const AddActivity = ({handleReload}) => {
+const AddActivity = ({handleReload, reload}) => {
     const [title, setTitle] = useState('');
     const [details, setDetails] = useState('');
     const [isBillable, setIsBillable] = useState(true);
@@ -34,7 +34,7 @@ const AddActivity = ({handleReload}) => {
         setIsBillable(true);
 
         if (submitResponse.status === 200) {
-            handleReload(true)
+            reload ? handleReload(false) : handleReload(true)
         }
     }
 
@@ -63,13 +63,13 @@ const AddActivity = ({handleReload}) => {
                 />
             </label>
             <br/>
-            <select onChange={_handleBillableChange} required>
-                <option disabled value={null} selected>Select One</option>
+            <select onChange={_handleBillableChange} required defaultValue={1}>
+                <option disabled value={1}>Select One</option>
                 <option value={true}>Billable</option>
                 <option value={false}>Non-billable</option>
             </select>
             <br/>
-            <Button  type="submit" >Add Activity</Button>
+            <Button  size="small" type="submit" variant="outlined" color="primary" disableElevation >Add Activity</Button>
         </form>
     )
 }

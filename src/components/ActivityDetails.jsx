@@ -13,7 +13,6 @@ const ActivityDetails = ({reload, handleReload}) => {
         (async () => {
             const activityData = await fetch (`http://127.0.0.1:3030/activities/${activity_id}`).then(response => response.json());
             setActivity(activityData);
-            console.log('activityData is ', activityData);
         })();
     },[reload, activity_id]);
     

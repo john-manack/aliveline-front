@@ -9,7 +9,6 @@ import './component-styles/ActivityList.css';
 const ActivitiesList = ({reload, handleReload }) => {
     const [activities, setActivities] = useState([]);
     const { url, path } = useRouteMatch();
-    console.log('url is ', url)
 
     useEffect(() => {
         (async () => {
@@ -23,7 +22,7 @@ const ActivitiesList = ({reload, handleReload }) => {
             <h1>User's Activities</h1>
             <hr/>
             <h2>Add new activity</h2>
-            <AddActivity handleReload={handleReload}/>
+            <AddActivity handleReload={handleReload} reload={reload}/>
             <hr/>
             <h2>List of Current Activities</h2>
                 <Box display="flex" flexDirection ="row" flexWrap="wrap" alignItems="center" justifyContent="center">
