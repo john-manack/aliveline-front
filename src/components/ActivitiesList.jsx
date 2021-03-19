@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 import { Route, Link, useRouteMatch } from 'react-router-dom';
 import ActivityDetails from './ActivityDetails';
 import AddActivity from './AddActivity';
+import { Box } from '@material-ui/core';
+import './component-styles/ActivityList.css';
 
 const ActivitiesList = ({reload, handleReload }) => {
     const [activities, setActivities] = useState([]);
     const { url, path } = useRouteMatch();
-    console.log('url is ', url)
 
     useEffect(() => {
         (async () => {
@@ -21,20 +22,19 @@ const ActivitiesList = ({reload, handleReload }) => {
             <h1>User's Activities</h1>
             <hr/>
             <h2>Add new activity</h2>
-            <AddActivity handleReload={handleReload}/>
+            <AddActivity handleReload={handleReload} reload={reload}/>
             <hr/>
             <h2>List of Current Activities</h2>
-            <ul>
-                {activities.map((activity, index) => (
-                    <li key={index}>
-                        <h3>{activity.title}</h3>
-                        <p>{activity.details}</p>
-                        <p>Complete? {activity.is_complete ? 'Yes' : 'No'}</p>
-                        <p>Billable? {activity.is_billable ? 'Yes' : 'No'}</p>
-                        <Link to={`${url}/${activity.id}`}>See Details</Link>
-                    </li>
-                ))}
-            </ul>
+                <Box display="flex" flexDirection ="row" flexWrap="wrap" alignItems="center" justifyContent="center">
+                    {activities.map((activity, index) => (
+                        <Box key={index} order={index} className="activity">
+                            <h3>{activity.title}</h3>
+                            <p>{activity.details}</p>
+                            <p>Complete? {activity.is_complete ? 'Yes' : 'No'}</p>
+                            <Link to={`${url}/${activity.id}`}>See Details</Link>
+                        </Box>
+                    ))}
+                </Box>
             <hr/>
             <Route exact path={path}>
                 <p>Please select an activity for more details</p>
