@@ -1,4 +1,6 @@
 import { useParams } from 'react-router-dom';
+import ToggleButton from '@material-ui/lab/ToggleButton';
+import CheckIcon from '@material-ui/icons/Check';
 
 const ToggleBillable = ({is_billable, handleReload, reload}) => {
     const { activity_id } = useParams();
@@ -22,7 +24,7 @@ const ToggleBillable = ({is_billable, handleReload, reload}) => {
     return (
         <>
             <p>Billable? - {is_billable ? 'Yes' : 'No'}</p>
-            <button type="button" onClick={_handleClick}>Toggle Billable</button>
+            <ToggleButton value="check" type="button" selected={is_billable} onClick={_handleClick} size="small"><CheckIcon/></ToggleButton>
         </>    
     )
 }

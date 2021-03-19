@@ -24,7 +24,7 @@ const ToggleComplete = ({is_complete, handleReload, reload}) => {
     return (
         <>
             <p>Complete? - {is_complete ? 'Yes' : 'No'}</p>
-            <ToggleButton value="check" type="button" selected={is_complete} onClick={_handleClick} color="blue"><CheckIcon/></ToggleButton>
+            <ToggleButton value="check" type="button" selected={is_complete} onClick={_handleClick} size="small"><CheckIcon/></ToggleButton>
         </>    
     )
 }

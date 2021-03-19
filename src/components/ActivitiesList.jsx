@@ -3,10 +3,24 @@ import { useEffect, useState } from 'react';
 import { Route, Link, useRouteMatch } from 'react-router-dom';
 import ActivityDetails from './ActivityDetails';
 import AddActivity from './AddActivity';
-import { Box } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Box, Paper } from '@material-ui/core';
 import './component-styles/ActivityList.css';
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > *': {
+            margin: theme.spacing(0),
+            width: theme.spacing(25),
+            height: theme.spacing(20),
+        },
+    },
+}));
+
 const ActivitiesList = ({reload, handleReload }) => {
+    const classes = useStyles();
     const [activities, setActivities] = useState([]);
     const { url, path } = useRouteMatch();
 
@@ -28,10 +42,13 @@ const ActivitiesList = ({reload, handleReload }) => {
                 <Box display="flex" flexDirection ="row" flexWrap="wrap" alignItems="center" justifyContent="center">
                     {activities.map((activity, index) => (
                         <Box key={index} order={index} className="activity">
-                            <h3>{activity.title}</h3>
-                            <p>{activity.details}</p>
-                            <p>Complete? {activity.is_complete ? 'Yes' : 'No'}</p>
-                            <Link to={`${url}/${activity.id}`}>See Details</Link>
+                            <div className={classes.root}>
+                                <Paper elevation={3} >
+                                    <h3>{activity.is_complete ? <span style={{textDecoration:'line-through red'}}>{activity.title}</span> : activity.title}</h3>
+                                    <p>Complete? {activity.is_complete ? 'Yes' : 'No'}</p>
+                                    <Link to={`${url}/${activity.id}`}>See Details</Link>
+                                </Paper>
+                            </div>
                         </Box>
                     ))}
                 </Box>

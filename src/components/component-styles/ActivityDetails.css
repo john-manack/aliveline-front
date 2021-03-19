@@ -1,0 +1,11 @@
+.details {
+    padding: 1rem;
+}
+
+.details li {
+    list-style: none;
+}
+
+.item {
+    padding: 1rem;
+}

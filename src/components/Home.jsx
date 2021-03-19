@@ -7,7 +7,7 @@ const Home = () => {
     return(
         <div className="Home">
             <h1>aliveline</h1>
-            <h3>a timecrunch manager for nerds</h3>
+            <h3>a crunchtime manager for nerds</h3>
         </div>
     )
 }

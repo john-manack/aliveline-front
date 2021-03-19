@@ -1,7 +1,25 @@
 import { useState } from 'react';
-import { Button } from '@material-ui/core';
+import { Button, TextField, Select, InputLabel, MenuItem } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        '& .MuiTextField-root': {
+            margin: theme.spacing(1),
+            width: '25ch',
+        },
+    },
+    formControl: {
+        margin: theme.spacing(1),
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(2),
+    },
+}));
 
 const AddActivity = ({handleReload, reload}) => {
+    const classes = useStyles();
     const [title, setTitle] = useState('');
     const [details, setDetails] = useState('');
     const [isBillable, setIsBillable] = useState(true);
@@ -39,35 +57,45 @@ const AddActivity = ({handleReload, reload}) => {
     }
 
     return (
-        <form onSubmit={_handleSubmit}>
+        <form className={classes.root} validate autoComplete="off" onSubmit={_handleSubmit}>
             <label>
-                <input 
-                    type="text" 
+                <TextField 
                     name="title" 
                     value={title} 
                     onChange={_handleTitleChange} 
-                    placeholder='Activity Title' 
                     required
+                    id="standard-required"
+                    label="Activity title"
+                    inputProps={{
+                        'aria-label': 'weight',
+                    }}
                 />
             </label>
             <br/>
             <label>
-                <input 
-                    type="text" 
-                    name="title" 
+                <TextField 
+                    id="filled-multiline-static"
+                    name="detail" 
                     value={details} 
                     onChange={_handleDetailsChange} 
-                    placeholder='Activity Details'
-                    size='50'
-                    required
+                    label="Activity details"
+                    multiline
+                    rows={2}
                 />
             </label>
             <br/>
-            <select onChange={_handleBillableChange} required defaultValue={1}>
-                <option disabled value={1}>Select One</option>
-                <option value={true}>Billable</option>
-                <option value={false}>Non-billable</option>
-            </select>
+            <InputLabel id="demo-simple-select-label">
+                <Select 
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={isBillable}
+                    onChange={_handleBillableChange} 
+                    defaultValue={1}
+                >
+                    <MenuItem value={true}>Billable</MenuItem>
+                    <MenuItem value={false}>Non-billable</MenuItem>
+                </Select>
+            </InputLabel>
             <br/>
             <Button  size="small" type="submit" variant="outlined" color="primary" disableElevation >Add Activity</Button>
         </form>
