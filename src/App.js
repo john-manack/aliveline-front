@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
 import Home from './components/Home'
 import ActivitiesList from './components/ActivitiesList';
 import { useState } from 'react';
-import { Tabs, Tab } from '@material-ui/core';
 import './App.css';
 
 function App() {
