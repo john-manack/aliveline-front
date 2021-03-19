@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Button, TextField } from '@material-ui/core';
 
 const AddNote = ({handleReload, notesArray, reload}) => {
     const { activity_id } = useParams({});
@@ -36,15 +37,17 @@ const AddNote = ({handleReload, notesArray, reload}) => {
                 ))}
             </ul>
             <form onSubmit={_handleSubmit}>
-                <input 
-                    type="text" 
-                    name="note_entry"
-                    value={newNoteEntry}
-                    onChange={_handleNewNoteEntry}
-                    placeholder="new note here"
-                    required
-                    />
-                <button type="submit">Add Note</button>
+                <label>
+                    <TextField 
+                        id="standard-required"
+                        name="note_entry"
+                        value={newNoteEntry}
+                        onChange={_handleNewNoteEntry}
+                        placeholder="new note here"
+                        required
+                        />
+                </label>
+                <Button size="small" color="primary" type="submit">Add Note</Button>
             </form>
         </>
     )

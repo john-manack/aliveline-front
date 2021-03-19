@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { Button, TextField } from '@material-ui/core';
 
 const AddHours = ({handleReload, hoursArray, reload}) => {
     const { activity_id } = useParams({});
@@ -43,23 +44,23 @@ const AddHours = ({handleReload, hoursArray, reload}) => {
                 ))}
             </ul>
             <form onSubmit={_handleSubmit}>
-                <input 
-                    type="text" 
+                <TextField 
+                    id="standard-required"
                     name="hours_entry"
                     value={newHoursTime}
                     onChange={_handleNewHoursTime}
                     placeholder="How many hours?"
                     required
                     />
-                <input 
-                    type="text" 
+                <TextField 
+                    id="standard-required"
                     name="hours_description"
                     value={newHoursDetail}
                     onChange={_handleNewHoursDetail}
                     placeholder="Hours detail here"
                     required
                 />
-                <button type="submit">Log Hours</button>
+                <Button size="small" color="primary" type="submit">Log Hours</Button>
             </form>
         </>
     )
