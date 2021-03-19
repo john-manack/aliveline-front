@@ -1,0 +1,17 @@
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.App {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.App nav > a {
+    margin: 0.5rem;
+    padding-top: 0.5rem;
+    color: green;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
