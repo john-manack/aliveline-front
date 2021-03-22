@@ -6,23 +6,32 @@ import { useAuth0 } from '@auth0/auth0-react';
 import './App.css';
 
 function App() {
-  const { user, isAuthenticated, isLoading } = useAuth0();
-
+  const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0();
   const [reload, setReload] = useState(false);
   const handleReload = (status) => {
       setReload(status);
   }
+
+  if (isLoading) return <div className="App">Loading...</div>
 
   return (
     
     <Router>
       <div className="App">
         <div>
-          <nav>
-            <Link to='/'>Home</Link>
-            <Link to='/activities'>Activities</Link>
-            <Link to='/about'>About</Link>
-          </nav>
+            {isAuthenticated ?
+            <nav>
+              <Link to='/'>Home</Link>
+              <Link to='/activities'>Activities</Link>
+              <Link to='/about'>About</Link>
+              <Link onClick={() => logout()}>Logout</Link> 
+            </nav> 
+            :
+            <nav>
+              <Link to='/'>Home</Link>
+              <Link to='/about'>About</Link>
+              <Link onClick={() => loginWithRedirect()}>Login/Sign Up</Link>
+            </nav>}
         </div>
         <Switch>
           <Route exact path='/'>

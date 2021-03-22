@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import { Route, Link, useRouteMatch } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 import ActivityDetails from './ActivityDetails';
 import AddActivity from './AddActivity';
 import { makeStyles } from '@material-ui/core/styles';
@@ -23,6 +24,7 @@ const ActivitiesList = ({reload, handleReload }) => {
     const classes = useStyles();
     const [activities, setActivities] = useState([]);
     const { url, path } = useRouteMatch();
+    const { user, isAuthenticated} = useAuth0();
 
     useEffect(() => {
         (async () => {
@@ -30,6 +32,8 @@ const ActivitiesList = ({reload, handleReload }) => {
             setActivities(activitiesData);
         })();
     },[reload])
+
+    if (!isAuthenticated) return <p>You must be logged in to view this page.</p>
 
     return(
         <>
