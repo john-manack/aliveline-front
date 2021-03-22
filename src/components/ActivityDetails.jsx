@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import ToggleComplete from './ToggleComplete';
 import ToggleBillable from './ToggleBillable';
+import ToggleFavorite from './ToggleFavorite';
 import AddNote from './AddNote';
 import AddHours from './AddHours';
 import { Box } from '@material-ui/core';
@@ -30,6 +31,9 @@ const ActivityDetails = ({reload, handleReload}) => {
                         </Box>
                         <Box className="item">
                             <ToggleBillable is_billable={activity.is_billable} handleReload={handleReload} reload={reload}/>
+                        </Box>
+                        <Box className="item">
+                            <ToggleFavorite is_favorite={activity.is_favorite} handleReload={handleReload} reload={reload}/>
                         </Box>
                         <Box className="item">
                             <p>Notes:</p>
