@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button, TextField, Select, InputLabel, MenuItem } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -23,6 +24,7 @@ const AddActivity = ({handleReload, reload}) => {
     const [title, setTitle] = useState('');
     const [details, setDetails] = useState('');
     const [isBillable, setIsBillable] = useState(true);
+    const { user } = useAuth0();
     
     const _handleTitleChange = e => {
         setTitle(e.target.value);
@@ -45,6 +47,7 @@ const AddActivity = ({handleReload, reload}) => {
                 title,
                 details,
                 is_billable: isBillable,
+                user_sub: user.sub
             })
         }).then((response) => response);
         setTitle('');

@@ -11,6 +11,7 @@ function App() {
   const handleReload = (status) => {
       setReload(status);
   }
+  console.log('user info is ', user)
 
   if (isLoading) return <div className="App">Loading...</div>
 

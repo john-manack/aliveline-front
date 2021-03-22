@@ -25,6 +25,9 @@ const ActivitiesList = ({reload, handleReload }) => {
     const [activities, setActivities] = useState([]);
     const { url, path } = useRouteMatch();
     const { user, isAuthenticated} = useAuth0();
+    const userActivities = activities.filter(activity => activity.user_sub === user.sub);
+    console.log('activities are ', activities)
+    console.log('userActivities are ', userActivities)
 
     useEffect(() => {
         (async () => {
@@ -44,7 +47,7 @@ const ActivitiesList = ({reload, handleReload }) => {
             <hr/>
             <h2>List of Current Activities</h2>
                 <Box display="flex" flexDirection ="row" flexWrap="wrap" alignItems="center" justifyContent="center">
-                    {activities.map((activity, index) => (
+                    {userActivities.map((activity, index) => (
                         <Box key={index} order={index} className="activity">
                             <div className={classes.root}>
                                 <Paper elevation={3} >
