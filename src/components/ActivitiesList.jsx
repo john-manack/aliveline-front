@@ -24,10 +24,16 @@ const ActivitiesList = ({reload, handleReload }) => {
     const classes = useStyles();
     const [activities, setActivities] = useState([]);
     const { url, path } = useRouteMatch();
+    
+    //Comment out below when testing, or app is not live
     const { user, isAuthenticated} = useAuth0();
-    const userActivities = activities.filter(activity => activity.user_sub === user.sub);
-    console.log('activities are ', activities)
-    console.log('userActivities are ', userActivities)
+    
+    // Comment out below when not testing, or app is live
+    // const user = {
+    //     sub: "google-oauth2|106823713440282669958"
+    // }
+    // const isAuthenticated = true;
+    
 
     useEffect(() => {
         (async () => {
@@ -37,6 +43,8 @@ const ActivitiesList = ({reload, handleReload }) => {
     },[reload])
 
     if (!isAuthenticated) return <p>You must be logged in to view this page.</p>
+
+    const userActivities = activities.filter(activity => activity.user_sub === user.sub);
 
     return(
         <>
