@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
 import Home from './components/Home'
 import ActivitiesList from './components/ActivitiesList';
+import About from './components/About';
 import { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import './App.css';
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path='/activities'>
             <ActivitiesList reload={reload} handleReload={handleReload}/>
+          </Route>
+          <Route path='/about'>
+            <About />
           </Route>
         </Switch>
       </div>

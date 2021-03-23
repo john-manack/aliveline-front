@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Button, TextField } from '@material-ui/core';
+import DeleteNote from './DeleteNote';
 
 const AddNote = ({handleReload, notesArray, reload}) => {
     const { activity_id } = useParams({});
@@ -32,7 +33,7 @@ const AddNote = ({handleReload, notesArray, reload}) => {
             <ul>
                 {notesArray.map((note, index) => (
                     <li key={index}>
-                        {note.note_entry}
+                        {note.note_entry} <DeleteNote handleReload={handleReload} reload={reload} note_id={note.id}/>
                     </li>
                 ))}
             </ul>
