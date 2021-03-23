@@ -1,11 +1,11 @@
-const DeleteHours = ({handleReload, reload, note_id}) => {
+const DeleteHours = ({handleReload, reload, hours_id}) => {
     
     const _handleDelete = async (e) => {
-        const submitResponse = await fetch ('http://127.0.0.1:3030/activities/deleteNote', {
+        const submitResponse = await fetch ('http://127.0.0.1:3030/activities/deleteHours', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                note_id
+                hours_id
             })
         }).then((response) => response);
 
@@ -15,7 +15,7 @@ const DeleteHours = ({handleReload, reload, note_id}) => {
     }
 
     const _handleClick = () => {
-        window.confirm('Are you sure you want to delete this note?') ? _handleDelete() : handleReload(false)
+        window.confirm('Are you sure you want to delete this hours entry?') ? _handleDelete() : handleReload(false)
     };
 
 
@@ -26,4 +26,4 @@ const DeleteHours = ({handleReload, reload, note_id}) => {
     )
 }
 
-export default DeleteHours
+export default DeleteHours;
