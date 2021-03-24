@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const AddActivity = ({handleReload, reload}) => {
+const AddActivity = ({handleReload, reload, handleClose }) => {
     const classes = useStyles();
     const [title, setTitle] = useState('');
     const [details, setDetails] = useState('');
@@ -100,7 +100,7 @@ const AddActivity = ({handleReload, reload}) => {
                 </Select>
             </InputLabel>
             <br/>
-            <Button  size="small" type="submit" variant="outlined" color="primary" disableElevation >Add Activity</Button>
+            <Button  size="small" type="submit" variant="outlined" color="primary" disableElevation onClick={handleClose}>Add Activity</Button>
         </form>
     )
 }

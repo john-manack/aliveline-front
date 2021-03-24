@@ -13,6 +13,7 @@ const ActivityDetails = ({reload, handleReload}) => {
     const { activity_id } = useParams({});
     const [activity, setActivity] = useState();
 
+
     useEffect(() => {
         (async () => {
             const activityData = await fetch (`http://127.0.0.1:3030/activities/${activity_id}`).then(response => response.json());
@@ -44,6 +45,7 @@ const ActivityDetails = ({reload, handleReload}) => {
                             <p>Hours Log:</p>
                             <AddHours hoursArray={activity.hours} handleReload={handleReload} reload={reload}/>
                         </Box>
+                        <br/>
                         <Box className="item">
                             <DeleteActivity handleReload={handleReload} reload={reload} activity_id={activity_id}/>
                         </Box>

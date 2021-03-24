@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import ToggleButton from '@material-ui/lab/ToggleButton';
-import CheckIcon from '@material-ui/icons/Check';
+import StarIcon from '@material-ui/icons/Star';
+
 
 const ToggleFavorite = ({is_favorite, handleReload, reload}) => {
     const { activity_id } = useParams();
@@ -24,7 +25,7 @@ const ToggleFavorite = ({is_favorite, handleReload, reload}) => {
     return (
         <>
             <p>Favorite? - {is_favorite ? 'Yes' : 'No'}</p>
-            <ToggleButton value="check" type="button" selected={is_favorite} onClick={_handleClick} size="small"><CheckIcon/></ToggleButton>
+            <ToggleButton value="check" type="button" selected={is_favorite} onClick={_handleClick} size="small" thumbSwitchedStyle={{ backgroundColor: 'green'}}><StarIcon/></ToggleButton>
         </>    
     )
 }

@@ -21,7 +21,7 @@ const DeleteActivity = ({handleReload, reload, activity_id}) => {
     }
 
     const _handleClick = () => {
-        window.confirm('Are you sure you want to delete this activity?') ? _handleDelete() : handleReload(false)
+        window.confirm('Are you sure you want to delete this activity? This action cannot be undone.') ? _handleDelete() : handleReload(false)
     };
 
 
