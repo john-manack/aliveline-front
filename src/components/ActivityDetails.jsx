@@ -7,6 +7,7 @@ import AddNote from './AddNote';
 import AddHours from './AddHours';
 import { Box } from '@material-ui/core';
 import './component-styles/ActivityDetails.css'
+import DeleteActivity from './DeleteActivity';
 
 const ActivityDetails = ({reload, handleReload}) => {
     const { activity_id } = useParams({});
@@ -42,6 +43,9 @@ const ActivityDetails = ({reload, handleReload}) => {
                         <Box className="item">
                             <p>Hours Log:</p>
                             <AddHours hoursArray={activity.hours} handleReload={handleReload} reload={reload}/>
+                        </Box>
+                        <Box className="item">
+                            <DeleteActivity handleReload={handleReload} reload={reload} activity_id={activity_id}/>
                         </Box>
                     </Box>
                 </>
