@@ -33,7 +33,7 @@ const AddNote = ({handleReload, notesArray, reload}) => {
             <ul>
                 {notesArray.map((note, index) => (
                     <li key={index}>
-                        {note.note_entry} <DeleteNote handleReload={handleReload} reload={reload} note_id={note.id}/>
+                        <span>{note.note_entry}<DeleteNote handleReload={handleReload} reload={reload} note_id={note.id}/></span>
                     </li>
                 ))}
             </ul>

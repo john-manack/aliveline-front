@@ -6,7 +6,7 @@ import ActivityDetails from './ActivityDetails';
 import AddActivity from './AddActivity';
 import Modal from './Modal';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Paper } from '@material-ui/core';
+import { Box, Paper, Button } from '@material-ui/core';
 import './component-styles/ActivityList.css';
 import StarBorderRoundedIcon from '@material-ui/icons/StarBorderRounded';
 import StarRoundedIcon from '@material-ui/icons/StarRounded';
@@ -55,16 +55,15 @@ const ActivitiesList = ({reload, handleReload }) => {
     const userActivities = activities.filter(activity => activity.user_sub === user.sub);
 
     return(
-        <>
-            <h1>Activities</h1>
-            <br/>
-            <button type="button" onClick={() => setShowAddModal(true)}>Add new activity</button>
+        <div className="activity-page">
+            <h1>activities</h1>
+            <p>Hi {user.given_name}! Your activities are below....<br/>pop one open to see the details, or add a new activity</p>
+            <Button type="button" onClick={() => setShowAddModal(true)} variant="outlined">Add new activity</Button>
             <Modal showModal={showAddModal} handleClose={() => setShowAddModal(false)}>
                 <AddActivity handleReload={handleReload} reload={reload} handleClose={() => setShowAddModal(false)}/>
             </Modal>
             <br/>
-            <h2>List of Current Activities</h2>
-                <Box display="flex" flexDirection ="row" flexWrap="wrap" alignItems="center" justifyContent="center">
+                <Box display="flex" flexDirection ="row" flexWrap="wrap" alignItems="center" justifyContent="center" margin="2.5rem">
                     {userActivities.map((activity, index) => (
                         <Box key={index} order={index} className="activity">
                             <div className={classes.root}>
@@ -88,7 +87,7 @@ const ActivitiesList = ({reload, handleReload }) => {
                     <ActivityDetails reload={reload} handleReload={handleReload}/>
                 </Modal>
             </Route>
-        </>
+        </div>
     )
 }
 

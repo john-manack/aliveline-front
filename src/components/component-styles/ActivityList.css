@@ -1,3 +1,23 @@
+.activity-page {
+    margin-top: 3rem;
+}
+
+.activity-page h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+}
+
+.activity-page p {
+    font-family: 'Kiwi Maru', serif;
+    font-weight: bold;
+    margin: 1rem;
+}
+
+.activity-page > p {
+    font-size: 1.2rem;
+    margin: 2rem;
+}
+
 .activity {
     margin: 0.5rem;
 }
@@ -13,4 +33,8 @@
 
 .activity h3 {
     padding: 5px;
+}
+
+.activity button {
+    margin: 2rem;
 }

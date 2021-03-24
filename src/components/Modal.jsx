@@ -1,4 +1,5 @@
-import './component-styles/Modal.css'
+import './component-styles/Modal.css';
+import { Button } from '@material-ui/core';
 
 const Modal = ({ handleClose, showModal, children }) => {
     const showHideClassName = showModal ? "modal display-block" : "modal display-none";
@@ -7,9 +8,9 @@ const Modal = ({ handleClose, showModal, children }) => {
         <div className={showHideClassName}>
         <section className="modal-main">
             {children}
-            <button type="button" onClick={handleClose} style={{padding: '5px', margin: '5px'}}>
+            <Button type="button" onClick={handleClose} style={{padding: '5px', margin: '5px'}}>
             Close
-            </button>
+            </Button>
         </section>
         </div>
     );

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { Button } from '@material-ui/core';
 
 const DeleteActivity = ({handleReload, reload, activity_id}) => {
     const history = useHistory();
@@ -27,7 +28,7 @@ const DeleteActivity = ({handleReload, reload, activity_id}) => {
 
     return (
         <div>
-            <button onClick={_handleClick}>Delete Activity</button>
+            <Button onClick={_handleClick} color="secondary">Delete Activity</Button>
         </div>
     )
 }

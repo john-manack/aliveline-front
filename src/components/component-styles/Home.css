@@ -1,8 +1,23 @@
-
+.Home {
+    margin: 5rem;
+}
 
 .Home h1 {
     font-family: 'Pacifico', cursive;
     font-size: 5rem;
+}
+
+.Home h4 {
+    margin: 3rem;
+    font-size: 1rem;
+}
+
+.Home a {
+    margin: 0.5rem;
+    padding-top: 0.5rem;
+    color: green;
+    text-decoration: none;
+    font-size: 1.2rem;
 }
 
 @media screen and (min-width: 600px) {
