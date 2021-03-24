@@ -1,3 +1,5 @@
+import { Button } from '@material-ui/core';
+
 const DeleteNote = ({handleReload, reload, note_id}) => {
     
     const _handleDelete = async (e) => {
@@ -20,9 +22,9 @@ const DeleteNote = ({handleReload, reload, note_id}) => {
 
 
     return (
-        <div>
-            <button onClick={_handleClick}>X</button>
-        </div>
+        <>
+            <Button onClick={_handleClick}>X</Button>
+        </>
     )
 }
 

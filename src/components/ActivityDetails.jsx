@@ -45,11 +45,8 @@ const ActivityDetails = ({reload, handleReload}) => {
                             <p>Hours Log:</p>
                             <AddHours hoursArray={activity.hours} handleReload={handleReload} reload={reload}/>
                         </Box>
-                        <br/>
-                        <Box className="item">
-                            <DeleteActivity handleReload={handleReload} reload={reload} activity_id={activity_id}/>
-                        </Box>
                     </Box>
+                    <DeleteActivity handleReload={handleReload} reload={reload} activity_id={activity_id}/>
                 </>
             ) : (
                 <p>Getting Activity Info...</p>
