@@ -1,10 +1,49 @@
-import React from 'react';
+import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
+import Home from './components/Home'
+import ActivitiesList from './components/ActivitiesList';
+import { useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+import './App.css';
 
 function App() {
+  const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0();
+  const [reload, setReload] = useState(false);
+  const handleReload = (status) => {
+      setReload(status);
+  }
+  console.log('user info is ', user)
+
+  if (isLoading) return <div className="App">Loading...</div>
+
   return (
-    <div >
-      <h1>Aliveline</h1>
-    </div>
+    
+    <Router>
+      <div className="App">
+        <div>
+            {isAuthenticated ?
+            <nav>
+              <Link to='/'>Home</Link>
+              <Link to='/activities'>Activities</Link>
+              <Link onClick={() => logout()}>Logout</Link> 
+            </nav> 
+            :
+            <nav>
+              <Link to='/'>Home</Link>
+              <Link onClick={() => loginWithRedirect()}>Login/Sign Up</Link>
+            </nav>}
+        </div>
+        <Switch>
+          <Route exact path='/'>
+            <Home/>
+          </Route>
+          <Route path='/activities'>
+            <ActivitiesList reload={reload} handleReload={handleReload}/>
+          </Route>
+          <Route path='/about'>
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
