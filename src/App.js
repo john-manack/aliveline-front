@@ -2,26 +2,35 @@ import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
 import Home from './components/Home'
 import ActivitiesList from './components/ActivitiesList';
 import { useState } from 'react';
-import { Tabs, Tab } from '@material-ui/core';
+import { useAuth0 } from '@auth0/auth0-react';
 import './App.css';
 
 function App() {
+  const { user, isAuthenticated, isLoading, loginWithRedirect, logout } = useAuth0();
   const [reload, setReload] = useState(false);
-
   const handleReload = (status) => {
       setReload(status);
   }
+  console.log('user info is ', user)
+
+  if (isLoading) return <div className="App">Loading...</div>
 
   return (
     
     <Router>
       <div className="App">
         <div>
-          <nav>
-            <Link to='/'>Home</Link>
-            <Link to='/activities'>Activities</Link>
-            <Link to='/about'>About</Link>
-          </nav>
+            {isAuthenticated ?
+            <nav>
+              <Link to='/'>Home</Link>
+              <Link to='/activities'>Activities</Link>
+              <Link onClick={() => logout()}>Logout</Link> 
+            </nav> 
+            :
+            <nav>
+              <Link to='/'>Home</Link>
+              <Link onClick={() => loginWithRedirect()}>Login/Sign Up</Link>
+            </nav>}
         </div>
         <Switch>
           <Route exact path='/'>
@@ -29,6 +38,8 @@ function App() {
           </Route>
           <Route path='/activities'>
             <ActivitiesList reload={reload} handleReload={handleReload}/>
+          </Route>
+          <Route path='/about'>
           </Route>
         </Switch>
       </div>

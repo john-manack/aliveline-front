@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Button, TextField } from '@material-ui/core';
+import DeleteHours from './DeleteHours.jsx'
 
 const AddHours = ({handleReload, hoursArray, reload}) => {
     const { activity_id } = useParams({});
@@ -39,7 +40,7 @@ const AddHours = ({handleReload, hoursArray, reload}) => {
             <ul>
                 {hoursArray.map((hours, index) => (
                     <li key={index}>
-                        {hours.hours_entry} hour(s) - {hours.hours_description}
+                        {hours.hours_entry} {hours.hours_entry === 1 ? 'hour' : 'hours'} - {hours.hours_description} <DeleteHours handleReload={handleReload} reload={reload} hours_id={hours.id}/>
                     </li>
                 ))}
             </ul>

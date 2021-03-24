@@ -2,14 +2,17 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import ToggleComplete from './ToggleComplete';
 import ToggleBillable from './ToggleBillable';
+import ToggleFavorite from './ToggleFavorite';
 import AddNote from './AddNote';
 import AddHours from './AddHours';
 import { Box } from '@material-ui/core';
 import './component-styles/ActivityDetails.css'
+import DeleteActivity from './DeleteActivity';
 
 const ActivityDetails = ({reload, handleReload}) => {
     const { activity_id } = useParams({});
     const [activity, setActivity] = useState();
+
 
     useEffect(() => {
         (async () => {
@@ -32,6 +35,9 @@ const ActivityDetails = ({reload, handleReload}) => {
                             <ToggleBillable is_billable={activity.is_billable} handleReload={handleReload} reload={reload}/>
                         </Box>
                         <Box className="item">
+                            <ToggleFavorite is_favorite={activity.is_favorite} handleReload={handleReload} reload={reload}/>
+                        </Box>
+                        <Box className="item">
                             <p>Notes:</p>
                             <AddNote notesArray={activity.notes} handleReload={handleReload} reload={reload}/>
                         </Box>
@@ -40,6 +46,7 @@ const ActivityDetails = ({reload, handleReload}) => {
                             <AddHours hoursArray={activity.hours} handleReload={handleReload} reload={reload}/>
                         </Box>
                     </Box>
+                    <DeleteActivity handleReload={handleReload} reload={reload} activity_id={activity_id}/>
                 </>
             ) : (
                 <p>Getting Activity Info...</p>
