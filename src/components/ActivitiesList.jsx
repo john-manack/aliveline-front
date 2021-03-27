@@ -45,7 +45,7 @@ const ActivitiesList = ({reload, handleReload }) => {
 
     useEffect(() => {
         (async () => {
-            const activitiesData = await fetch('http://127.0.0.1:3030/activities').then(response => response.json());
+            const activitiesData = await fetch(`${process.env.REACT_APP_SERVER_URL}/activities`).then(response => response.json());
             setActivities(activitiesData);
         })();
     },[reload])

@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 const DeleteNote = ({handleReload, reload, note_id}) => {
     
     const _handleDelete = async (e) => {
-        const submitResponse = await fetch ('http://127.0.0.1:3030/activities/deleteNote', {
+        const submitResponse = await fetch (`${process.env.REACT_APP_SERVER_URL}/activities/deleteNote`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

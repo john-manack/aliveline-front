@@ -13,7 +13,7 @@ const AddNote = ({handleReload, notesArray, reload}) => {
 
     const _handleSubmit = async (e) => {
         e.preventDefault();
-        const submitResponse = await fetch ('http://127.0.0.1:3030/activities/addNote', {
+        const submitResponse = await fetch (`${process.env.REACT_APP_SERVER_URL}/activities/addNote`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
