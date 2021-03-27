@@ -7,7 +7,7 @@ const DeleteActivity = ({handleReload, reload, activity_id}) => {
 
 
     const _handleDelete = async (e) => {
-        const submitResponse = await fetch ('http://127.0.0.1:3030/activities/deleteActivity', {
+        const submitResponse = await fetch ('https://still-tundra-55405.herokuapp.com/activities/deleteActivity', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

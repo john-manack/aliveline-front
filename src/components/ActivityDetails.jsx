@@ -16,7 +16,7 @@ const ActivityDetails = ({reload, handleReload}) => {
 
     useEffect(() => {
         (async () => {
-            const activityData = await fetch (`http://127.0.0.1:3030/activities/${activity_id}`).then(response => response.json());
+            const activityData = await fetch (`https://still-tundra-55405.herokuapp.com/activities/${activity_id}`).then(response => response.json());
             setActivity(activityData);
         })();
     },[reload, activity_id]);
