@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 const DeleteHours = ({handleReload, reload, hours_id}) => {
     
     const _handleDelete = async (e) => {
-        const submitResponse = await fetch ('https://still-tundra-55405.herokuapp.com/activities/deleteHours', {
+        const submitResponse = await fetch (`${process.env.REACT_APP_SERVER_URL}/activities/deleteHours`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

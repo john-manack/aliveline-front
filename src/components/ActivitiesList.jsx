@@ -45,7 +45,7 @@ const ActivitiesList = ({reload, handleReload }) => {
 
     useEffect(() => {
         (async () => {
-            const activitiesData = await fetch('https://still-tundra-55405.herokuapp.com/activities').then(response => response.json());
+            const activitiesData = await fetch(`${process.env.REACT_APP_SERVER_URL}/activities`).then(response => response.json());
             setActivities(activitiesData);
         })();
     },[reload])

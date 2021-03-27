@@ -13,7 +13,7 @@ const AddNote = ({handleReload, notesArray, reload}) => {
 
     const _handleSubmit = async (e) => {
         e.preventDefault();
-        const submitResponse = await fetch ('https://still-tundra-55405.herokuapp.com/activities/addNote', {
+        const submitResponse = await fetch (`${process.env.REACT_APP_SERVER_URL}/activities/addNote`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

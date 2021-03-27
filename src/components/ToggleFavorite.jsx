@@ -8,7 +8,7 @@ const ToggleFavorite = ({is_favorite, handleReload, reload}) => {
 
     const _handleClick = async (e) => {
         e.preventDefault();
-        const toggleResponse = await fetch('https://still-tundra-55405.herokuapp.com/activities/modifyIsFavorite', {
+        const toggleResponse = await fetch(`${process.env.REACT_APP_SERVER_URL}/activities/modifyIsFavorite`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

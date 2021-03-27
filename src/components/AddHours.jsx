@@ -18,7 +18,7 @@ const AddHours = ({handleReload, hoursArray, reload}) => {
 
     const _handleSubmit = async (e) => {
         e.preventDefault();
-        const submitResponse = await fetch ('https://still-tundra-55405.herokuapp.com/activities/addHours', {
+        const submitResponse = await fetch (`${process.env.REACT_APP_SERVER_URL}/activities/addHours`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
