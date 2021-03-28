@@ -45,6 +45,7 @@ As a former tax accountant, I was often required a juggle and prioritize dozens 
 - cors (node dependency)
 - Model & Controller integration to create a custom JSON API
 - Deployed on Heroku
+- [See Backend Repo](https://github.com/john-manack/aliveline-front)
 
 ### Frontend Technologies
 
@@ -54,6 +55,8 @@ As a former tax accountant, I was often required a juggle and prioritize dozens 
 - Styled with material-ui and vanilla CSS
 - Auth0 (SPA package)
 - Component testing using React test utilities
+- Deployed on netlify
+- [See Frontend Repo](https://github.com/john-manack/aliveline-back)
 
 ## Screenshots
 
@@ -68,3 +71,8 @@ Add An Activity
 
 Update An Activity
 ![Update and Activity](./images/updates_activity.png)
+
+## Links
+
+[Live Site](https://aliveline.netlify.app/)
+[Developer](https://www.linkedin.com/in/john-manack/)
