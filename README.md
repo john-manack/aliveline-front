@@ -45,7 +45,7 @@ As a former tax accountant, I was often required a juggle and prioritize dozens 
 - cors (node dependency)
 - Model & Controller integration to create a custom JSON API
 - Deployed on Heroku
-- [See Backend Repo](https://github.com/john-manack/aliveline-front)
+- [See Backend Repo](https://github.com/john-manack/aliveline-back)
 
 ### Frontend Technologies
 
@@ -56,7 +56,7 @@ As a former tax accountant, I was often required a juggle and prioritize dozens 
 - Auth0 (SPA package)
 - Component testing using React test utilities
 - Deployed on netlify
-- [See Frontend Repo](https://github.com/john-manack/aliveline-back)
+- [See Frontend Repo](https://github.com/john-manack/aliveline-front)
 
 ## Screenshots
 
