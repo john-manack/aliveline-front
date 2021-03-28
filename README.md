@@ -74,5 +74,5 @@ Update An Activity
 
 ## Links
 
-[Live Site](https://aliveline.netlify.app/)
-[Developer](https://www.linkedin.com/in/john-manack/)
+- [Live Site](https://aliveline.netlify.app/)
+- [Developer](https://www.linkedin.com/in/john-manack/)
